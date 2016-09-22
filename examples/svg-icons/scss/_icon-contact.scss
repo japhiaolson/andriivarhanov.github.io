@@ -35,8 +35,6 @@ $letter-animation--3: cubic-bezier(.41, 0, .33, .99) !default;
 $letter-animation-opacity: cubic-bezier(.73, .2, .73, .99) !default;
 
 .icon-contact {
-  margin-bottom: 1rem;
-
   &__envelop {
     fill: $white;
   }
