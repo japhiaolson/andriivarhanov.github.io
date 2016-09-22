@@ -19,11 +19,6 @@ $cover-duration--3: 2s !default; //$letter-duration: $cover-duration !default;
 $letter-duration--3: 1.1s !default;
 $letter-delay--3: $cover-duration / 3 !default;
 
-// Colors
-$brand-blue: #4ddbff !default;
-$brand-yellow: #ffc000 !default;
-$white: #fff !default;
-
 // Animations
 $cover-animation: linear !default; //$letter-animation: cubic-bezier(.41,0,.33,.99) !default;
 $letter-animation: ease-in !default;
