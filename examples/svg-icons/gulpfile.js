@@ -38,7 +38,7 @@ gulp.task('styles', function (production) {
       })
     }))
     .pipe(gulpif(!production, sourcemaps.init()))
-    .pipe(sass())
+    .pipe(sass({outputStyle: 'expanded'}))
     .pipe(postcss(postcssArg))
     .pipe(concat('main.css'))
     .pipe(gulpif(!production, sourcemaps.write()))
