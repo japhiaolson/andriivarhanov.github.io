@@ -1,0 +1,33 @@
+{
+  "name": "svg-icons",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp build",
+    "build": "gulp build --production"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.4.0",
+    "browser-sync": "^2.14.0",
+    "cssnano": "^3.7.3",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-if": "^2.0.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-param": "^1.0.3",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.1.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "stylelint": "^7.2.0",
+    "stylelint-config-standard": "^13.0.0"
+  }
+}
