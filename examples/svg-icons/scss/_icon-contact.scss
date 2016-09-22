@@ -1,0 +1,394 @@
+// Timing
+//$cover-duration: 1s !default;
+$cover-duration: 1.2s !default; //$letter-duration: $cover-duration !default;
+$letter-duration: 1s !default;
+$letter-delay: $cover-duration / 3 !default;
+$color-duration: $cover-duration / 5 !default;
+$sign-duration: $cover-duration / 2 !default;
+$sign-delay: $cover-duration !default;
+
+// Timing --2
+//$cover-duration: 1s !default;
+$cover-duration--2: 2s !default; //$letter-duration: $cover-duration !default;
+$letter-duration--2: 1.2s !default;
+$letter-delay--2: $cover-duration / 3 !default;
+
+// Timing --3
+//$cover-duration: 1s !default;
+$cover-duration--3: 2s !default; //$letter-duration: $cover-duration !default;
+$letter-duration--3: 1.1s !default;
+$letter-delay--3: $cover-duration / 3 !default;
+
+// Colors
+$brand-blue: #4ddbff !default;
+$brand-yellow: #ffc000 !default;
+$white: #fff !default;
+
+// Animations
+$cover-animation: linear !default; //$letter-animation: cubic-bezier(.41,0,.33,.99) !default;
+$letter-animation: ease-in !default;
+$color-animation: $letter-animation !default;
+$sign-animation: $letter-animation !default;
+
+// Animations --2
+$cover-animation--2: cubic-bezier(0, .55, .52, .99) !default;
+$letter-animation--2: cubic-bezier(.41, 0, .33, .99) !default;
+
+// Animations --3
+$cover-animation--3: cubic-bezier(0, .55, .52, .99) !default;
+$letter-animation--3: cubic-bezier(.41, 0, .33, .99) !default;
+$letter-animation-opacity: cubic-bezier(.73, .2, .73, .99) !default;
+
+.icon-contact {
+  margin-bottom: 1rem;
+
+  &__envelop {
+    fill: $white;
+  }
+
+  &__cover-left {
+    stroke: $brand-blue;
+    transform-origin: 108px;
+    transform: skewY(35deg);
+  }
+
+  &__cover-right {
+    stroke: $brand-blue;
+    transform-origin: 348px;
+    transform: skewY(-35deg);
+  }
+
+  &__letter {
+    visibility: hidden;
+  }
+
+  &__sign {
+    stroke: $brand-blue;
+    stroke-dasharray: 120 100;
+    visibility: visible;
+  }
+
+  &__border,
+  &__envelop {
+    stroke: $brand-blue;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    & .icon-contact__cover-left {
+      animation: cover-left $cover-duration $cover-animation forwards, color-stroke $color-duration $color-animation $cover-duration forwards;
+    }
+
+    & .icon-contact__cover-right {
+      animation: cover-right $cover-duration $cover-animation forwards, color-stroke $color-duration $color-animation $cover-duration forwards;
+    }
+
+    & .icon-contact__letter {
+      animation: letter $letter-duration $letter-animation forwards;
+      animation-delay: $letter-delay;
+    }
+
+    & .icon-contact__sign {
+      visibility: hidden;
+      stroke-dasharray: 0 100;
+      animation: sign $sign-duration $sign-animation $sign-delay forwards, color-stroke $color-duration $color-animation $cover-duration forwards;
+
+      &--delay {
+        animation: sign $sign-duration $sign-animation #{$sign-delay * 1.3} forwards, color-stroke $color-duration $color-animation $cover-duration forwards;
+      }
+    }
+
+    & .icon-contact__envelop {
+      animation: color-stroke $color-duration $color-animation $cover-duration forwards;
+    }
+
+    & .icon-contact__border {
+      animation: color-stroke $color-duration $color-animation $cover-duration forwards;
+    }
+  }
+
+  &.icon-contact--2 {
+    &:hover {
+      & .icon-contact__cover-left {
+        animation: cover-left--2 $cover-duration--2 $cover-animation--2 forwards, color-stroke $color-duration $color-animation $cover-duration forwards;
+      }
+
+      & .icon-contact__cover-right {
+        animation: cover-right--2 $cover-duration--2 $cover-animation--2 forwards, color-stroke $color-duration $color-animation $cover-duration forwards;
+      }
+
+      & .icon-contact__letter {
+        animation: letter--2 $letter-duration--2 $letter-animation--2 forwards;
+        animation-delay: $letter-delay;
+      }
+    }
+  }
+
+  &.icon-contact--3 {
+    &:hover {
+      & .icon-contact__cover-left {
+        animation: cover-left--3 $cover-duration--3 $cover-animation--3 forwards, color-stroke $color-duration $color-animation $cover-duration forwards;
+      }
+
+      & .icon-contact__cover-right {
+        animation: cover-right--3 $cover-duration--3 $cover-animation--3 forwards, color-stroke $color-duration $color-animation $cover-duration forwards;
+      }
+
+      & .icon-contact__letter {
+        animation: letter--3 $letter-duration--3 $letter-animation--3 $letter-delay forwards, letter-opacity $letter-duration--3 $letter-animation-opacity $letter-delay forwards;
+      }
+    }
+  }
+}
+
+@keyframes cover-left {
+  0% {
+    transform: skewY(35deg);
+  }
+
+  25% {
+    transform: skewY(0deg);
+  }
+
+  40% {
+    transform: skewY(-35deg);
+  }
+
+  50% {
+    transform: skewY(-35deg);
+  }
+
+  60% {
+    transform: skewY(-35deg);
+  }
+
+  75% {
+    transform: skewY(0deg);
+  }
+
+  100% {
+    transform: skewY(35deg);
+  }
+}
+
+@keyframes cover-right {
+  0% {
+    transform: skewY(-35deg);
+  }
+
+  25% {
+    transform: skewY(0deg);
+  }
+
+  40% {
+    transform: skewY(35deg);
+  }
+
+  50% {
+    transform: skewY(35deg);
+  }
+
+  60% {
+    transform: skewY(35deg);
+  }
+
+  75% {
+    transform: skewY(0deg);
+  }
+
+  100% {
+    transform: skewY(-35deg);
+  }
+}
+
+@keyframes letter {
+  0% {
+    visibility: visible;
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  60% {
+    transform: translateY(140px);
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0.5;
+  }
+
+  90% {
+    transform: translateY(140px);
+  }
+
+  95% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    transform: translateY(140px);
+  }
+}
+
+@keyframes cover-left--2 {
+  0% {
+    transform: skewY(35deg);
+  }
+
+  /* 25% {
+    transform: skewY(0deg);
+  } */
+
+  /*  40% {
+    transform: skewY(-35deg);
+  } */
+  50% {
+    transform: skewY(-35deg);
+  }
+
+  /* 60% {
+    transform: skewY(-35deg);
+  } */
+
+  /* 75% {
+    transform: skewY(0deg);
+  } */
+  100% {
+    transform: skewY(35deg);
+  }
+}
+
+@keyframes cover-right--2 {
+  0% {
+    transform: skewY(-35deg);
+  }
+
+  /* 25% {
+    transform: skewY(0deg);
+  } */
+
+  /* 40% {
+    transform: skewY(35deg);
+  } */
+  50% {
+    transform: skewY(35deg);
+  }
+
+  /* 60% {
+    transform: skewY(35deg);
+  } */
+
+  /* 75% {
+    transform: skewY(0deg);
+  } */
+  100% {
+    transform: skewY(-35deg);
+  }
+}
+
+@keyframes letter--2 {
+  0% {
+    visibility: visible;
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    transform: translateY(140px);
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  /* 90% {
+    transform: translateY(140px);
+  } */
+  95% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    transform: translateY(140px);
+  }
+}
+
+@keyframes cover-left--3 {
+  0% {
+    transform: skewY(35deg);
+  }
+
+  50% {
+    transform: skewY(-35deg);
+  }
+
+  100% {
+    transform: skewY(35deg);
+  }
+}
+
+@keyframes cover-right--3 {
+  0% {
+    transform: skewY(-35deg);
+  }
+
+  50% {
+    transform: skewY(35deg);
+  }
+
+  100% {
+    transform: skewY(-35deg);
+  }
+}
+
+@keyframes letter--3 {
+  to {
+    visibility: visible;
+    transform: translateY(140px);
+  }
+}
+
+@keyframes letter-opacity {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes sign {
+  20% {
+    visibility: visible;
+  }
+
+  to {
+    stroke-dasharray: 120 100;
+    visibility: visible;
+  }
+}
+
+@keyframes color-stroke {
+  0% {
+    stroke: $brand-blue;
+  }
+
+  100% {
+    stroke: $brand-yellow;
+  }
+}
