@@ -1,53 +1,53 @@
 // Base value of animation
-$animation-duration: 3s !default;
+$icon-home-duration: 3s !default;
 
 // Steps
-$rays-out-duration: $animation-duration / 10 !default;
+$rays-out-duration: $icon-home-duration / 10 !default;
 $rays-out-delay: 0s !default;
 
-$sun-out-duration: $animation-duration / 6 !default;
+$sun-out-duration: $icon-home-duration / 6 !default;
 $sun-out-delay: $rays-out-duration + $rays-out-delay !default;
 
 $cloud-in-duration: $sun-out-duration + $sun-out-delay !default;
 $cloud-in-delay: 0s !default;
 
-$sun-in-duration: $animation-duration / 7 !default;
+$sun-in-duration: $icon-home-duration / 7 !default;
 $sun-in-delay: ($sun-out-duration + $sun-out-delay) * 0.8 !default;
 
-$rays-in-duration: $animation-duration / 20 !default;
+$rays-in-duration: $icon-home-duration / 20 !default;
 $rays-in-delay: $sun-in-delay + $sun-in-duration !default;
 
-$rays-length: $animation-duration / 3 !default;
+$rays-length: $icon-home-duration / 3 !default;
 $rays-length-delay: $rays-in-delay + $rays-in-duration !default;
 
-$cloud-out-duration: $animation-duration / 3 !default;
+$cloud-out-duration: $icon-home-duration / 3 !default;
 $cloud-out-delay: ($rays-in-delay + $rays-in-duration) * 1.3 !default;
 
-$sun-back-to-duration: $animation-duration / 3 !default;
+$sun-back-to-duration: $icon-home-duration / 3 !default;
 $sun-back-to-delay: ($rays-in-delay + $rays-in-duration) * 1.3 !default;
 
-$color-duration: $animation-duration / 10 !default;
-$color-delay: $sun-back-to-delay !default;
+$home-color-duration: $icon-home-duration / 10 !default;
+$home-color-delay: $rays-in-delay !default;
 
 // Animations
-$base-animation: ease-in-out !default;
+$home-base-animation: ease-in-out !default;
 
 // -rays
-$rays-out-animation: $base-animation !default;
+$rays-out-animation: $home-base-animation !default;
 $rays-in-animation: ease-in !default;
-$rays-length-animation: $base-animation !default;
+$rays-length-animation: $home-base-animation !default;
 
 // -sun
 $sun-in-animation: cubic-bezier(.41, 0, .33, .99) !default;
-$sun-out-animation: $base-animation !default;
+$sun-out-animation: $home-base-animation !default;
 $sun-back-to-animation: $sun-in-animation !default;
 
 // -cloud
 $cloud-out-animation: $sun-in-animation !default;
-$cloud-in-animation: $base-animation !default;
+$cloud-in-animation: $home-base-animation !default;
 
 // -color
-$color-animation: ease-in !default;
+$home-color-animation: ease-in !default;
 
 .icon-home {
   &__sun {
@@ -92,7 +92,7 @@ $color-animation: ease-in !default;
           rays-out $rays-out-duration $rays-out-animation forwards,
           rays-in-even $rays-in-duration $rays-in-animation $rays-in-delay forwards,
           rays-length-even $rays-length $rays-length-animation $rays-length-delay infinite,
-          color-stroke $color-duration $color-animation $color-delay forwards;
+          color-stroke $home-color-duration $home-color-animation $home-color-delay forwards;
       }
 
       &--odd {
@@ -100,17 +100,17 @@ $color-animation: ease-in !default;
           rays-out $rays-out-duration $rays-out-animation forwards,
           rays-in-odd $rays-in-duration $rays-in-animation $rays-in-delay forwards,
           rays-length-odd $rays-length $rays-length-animation $rays-length-delay infinite,
-          color-stroke $color-duration $color-animation $color-delay forwards;
+          color-stroke $home-color-duration $home-color-animation $home-color-delay forwards;
       }
     }
 
     & .icon-home__border {
-      animation: color-stroke $color-duration $color-animation $color-delay forwards;
+      animation: color-stroke $home-color-duration $home-color-animation $home-color-delay forwards;
     }
 
     & .icon-home__cloud-fill,
     & .icon-home__sun-fill {
-      animation: color-fill $color-duration $color-animation $color-delay forwards;
+      animation: color-fill $home-color-duration $home-color-animation $home-color-delay forwards;
     }
   }
 }
