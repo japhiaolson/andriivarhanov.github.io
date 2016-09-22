@@ -1,0 +1,40 @@
+path.even {
+  stroke-dasharray: 41 101;
+  animation: suns-even 1s ease-in-out infinite;
+}
+
+path.odd {
+  animation: suns-odd 1s ease-in-out infinite;
+}
+
+.icon-home__sun {
+  /* transform: translateX(40px) */
+}
+
+@keyframes suns-odd {
+  0% {
+    stroke-dasharray: 101 101;
+  }
+
+  50% {
+    stroke-dasharray: 41 101;
+  }
+
+  100% {
+    stroke-dasharray: 101 101;
+  }
+}
+
+@keyframes suns-even {
+  0% {
+    stroke-dasharray: 41 101;
+  }
+
+  50% {
+    stroke-dasharray: 101 101;
+  }
+
+  100% {
+    stroke-dasharray: 41 101;
+  }
+}
