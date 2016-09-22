@@ -1,0 +1,64 @@
+// Base value of animation
+$thumb-duration: 1s;
+
+// Timing
+$thumb-color-duration: $thumb-duration / 4 !default;
+$thumb-color-delay: $thumb-duration / 2 !default;
+
+// Animation
+// -thumb
+$thumb-animation: ease-in-out !default;
+// -color
+$thumb-color-animation: ease-in !default;
+
+.icon-thumb {
+  &:hover {
+    cursor: pointer;
+
+    & .icon-thumb__hand {
+      animation: hand-move $thumb-duration $thumb-animation forwards;
+
+      & path {
+        animation: color-fill $thumb-color-duration $thumb-color-animation $thumb-color-delay forwards;
+      }
+    }
+
+    & .icon-thumb__border {
+      animation: color-stroke $thumb-color-duration $thumb-color-animation $thumb-color-delay forwards;
+    }
+  }
+}
+
+@keyframes hand-move {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  30% {
+    transform: translate(-50px, 50px);
+  }
+
+  60% {
+    transform: translate(-100px, 0);
+  }
+
+  75% {
+    transform: translate(15px, 0);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes color-stroke {
+  to {
+    stroke: $brand-yellow;
+  }
+}
+
+@keyframes color-fill {
+  to {
+    fill: $brand-yellow;
+  }
+}
