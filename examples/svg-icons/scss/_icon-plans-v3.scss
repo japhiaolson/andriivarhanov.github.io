@@ -47,11 +47,11 @@ $color-animation: ease-in;
     cursor: pointer;
 
     & .icon-plans__coin-shadow {
-      animation: coin-out--v2 $coin-out-duration $coin-out-animation $coin-out-delay;
+      animation: coin-out--v3 $coin-out-duration $coin-out-animation $coin-out-delay;
     }
 
     & .icon-plans__coin-top {
-      animation: coin-bounce--v2 $coin-bounce-duration $coin-bounce-delay;
+      animation: coin-bounce--v3 $coin-bounce-duration $coin-bounce-delay;
     }
 
     & .icon-plans__fill {
@@ -65,7 +65,7 @@ $color-animation: ease-in;
   }
 }
 
-@keyframes coin-bounce--v2 {
+@keyframes coin-bounce--v3 {
   20%,
   53%,
   80%,
@@ -91,7 +91,7 @@ $color-animation: ease-in;
   }
 }
 
-@keyframes coin-out--v2 {
+@keyframes coin-out--v3 {
   from {
     opacity: 1;
   }
