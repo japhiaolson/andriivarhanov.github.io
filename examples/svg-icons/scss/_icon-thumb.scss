@@ -16,6 +16,17 @@ $thumb-animation: ease-in-out;
 $thumb-color-animation: ease-in;
 
 .icon-thumb {
+  &__border {
+    stroke: $brand-blue;
+    fill: $white;
+  }
+
+  &__hand {
+    path {
+      fill: $brand-blue;
+    }
+  }
+
   &:hover {
     cursor: pointer;
 

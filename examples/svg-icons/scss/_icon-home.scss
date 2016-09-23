@@ -56,9 +56,19 @@ $home-color-animation: ease-in !default;
 .icon-home {
   &__sun {
     transform-origin: 500px 500px;
+
+    &-fill {
+      fill: $brand-blue;
+    }
+
+    &-blink {
+      fill: $white;
+    }
   }
 
   &__ray {
+    stroke: $brand-blue;
+
     &--even {
       stroke-dasharray: 41 101;
     }
@@ -71,6 +81,20 @@ $home-color-animation: ease-in !default;
   &__cloud {
     transform: translate(160px, 423px);
     transform-origin: 160px 322px;
+
+    &-outher {
+      fill: $white;
+      stroke: $white;
+    }
+
+    &-fill {
+      fill: $brand-blue;
+    }
+  }
+
+  &__border {
+    stroke: $brand-blue;
+    fill: $white;
   }
 
   &:hover {
