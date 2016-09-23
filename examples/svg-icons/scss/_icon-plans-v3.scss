@@ -1,0 +1,119 @@
+// Colors
+$brand-blue: #4ddbff !default;
+$brand-yellow: #ffc000 !default;
+
+// Base value of animation
+$animation-duration: 2.5s;
+
+$coin-bounce-duration: $animation-duration / 3;
+$coin-bounce-delay: 0s;
+
+$coin-out-duration: $animation-duration / 5;
+$coin-out-delay: $coin-bounce-duration / 5;
+
+$color-duration: $animation-duration / 10;
+$color-delay: $animation-duration / 5;
+
+// Animations
+$coin-out-animation: ease-out;
+
+// -color
+$color-animation: ease-in;
+
+.icon-plans--v3 {
+  &__border {
+    stroke: $brand-blue;
+    fill: $white;
+  }
+
+  &__fill {
+    fill: $brand-blue;
+  }
+
+  &__stroke {
+    stroke: $brand-blue;
+  }
+
+  &__coin-shadow {
+    opacity: 0;
+  }
+
+  &__coin-top,
+  &__coin-shadow {
+    transform-origin: 561px 519px;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    & .icon-plans__coin-shadow {
+      animation: coin-out--v2 $coin-out-duration $coin-out-animation $coin-out-delay;
+    }
+
+    & .icon-plans__coin-top {
+      animation: coin-bounce--v2 $coin-bounce-duration $coin-bounce-delay;
+    }
+
+    & .icon-plans__fill {
+      animation: color-fill $color-duration $color-animation $color-delay forwards;
+    }
+
+    & .icon-plans__border,
+    & .icon-plans__stroke {
+      animation: color-stroke $color-duration $color-animation $color-delay forwards;
+    }
+  }
+}
+
+@keyframes coin-bounce--v2 {
+  20%,
+  53%,
+  80%,
+  from,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translateY(0);
+  }
+
+  40%,
+  43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translateY(-150px);
+  }
+
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translateY(-75px);
+  }
+
+  90% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes coin-out--v2 {
+  from {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-500px) rotate(-120deg);
+  }
+}
+
+@keyframes color-stroke {
+  to {
+    stroke: $brand-yellow;
+  }
+}
+
+@keyframes color-fill {
+  to {
+    fill: $brand-yellow;
+  }
+}
