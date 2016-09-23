@@ -44,7 +44,7 @@ $color-animation: ease-in;
     cursor: pointer;
 
     & .icon-thumb__hand {
-      animation: hand-move--v2 $hand-move-duration $hand-move-delay forwards;
+      animation: hand-move--v3 $hand-move-duration $hand-move-delay forwards;
     }
 
     & .icon-thumb--v3__thumb-down {
@@ -70,18 +70,19 @@ $color-animation: ease-in;
   }
 }
 
-@keyframes hand-move--v2 {
+@keyframes hand-move--v3 {
   from,
   to {
-    transform: translateY(0);
+    transform: translate(0, 0);
   }
 
   50% {
-    transform: translateY(70px);
+    transform: translate(-20px, -70px);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
   }
 
   75% {
-    transform: translateY(-40px);
+    transform: translate(10px, 40px);
   }
 }
 

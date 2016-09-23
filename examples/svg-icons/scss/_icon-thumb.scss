@@ -3,66 +3,113 @@ $brand-blue: #4ddbff !default;
 $brand-yellow: #ffc000 !default;
 
 // Base value of animation
-$thumb-duration: 1s;
+$animation-duration: 1s;
 
 // Timing
-$thumb-color-duration: $thumb-duration / 4;
-$thumb-color-delay: $thumb-duration / 2;
+$hand-move-duration: $animation-duration;
+$hand-move-delay: 0s;
+
+$thumb-down-duration: $animation-duration;
+$thumb-down-delay: $hand-move-delay;
+
+$thumb-up-duration: $animation-duration;
+$thumb-up-delay: $hand-move-delay;
+
+$color-duration: $animation-duration / 4;
+$color-delay: $animation-duration / 2;
 
 // Animation
-// -thumb
-$thumb-animation: ease-in-out;
-// -color
-$thumb-color-animation: ease-in;
+// -hand
+$hand-move-animation: ease-in-out;
 
-.icon-thumb {
+// -thumb
+$thumb-up-animation: ease-in-out;
+$thumb-down-animation: ease-in-out;
+
+// -color
+$color-animation: ease-in;
+
+.icon-thumb--v1 {
   &__border {
     stroke: $brand-blue;
     fill: $white;
   }
 
-  &__hand {
-    //path {
-    //  fill: $brand-blue;
-    //}
+  &__thumb-down {
+    opacity: 0;
+    fill: $brand-blue;
   }
 
   &:hover {
     cursor: pointer;
 
     & .icon-thumb__hand {
-      animation: hand-move $thumb-duration $thumb-animation forwards;
+      animation: hand-move--v1 $hand-move-duration $hand-move-delay forwards;
+    }
 
-      & path {
-        animation: color-fill $thumb-color-duration $thumb-color-animation $thumb-color-delay forwards;
-      }
+    & .icon-thumb--v1__thumb-down {
+      opacity: 1;
+      animation:
+        thumb-down $thumb-down-duration $thumb-down-animation $thumb-down-delay forwards,
+        color-fill $color-duration $color-animation $color-delay forwards;
+    }
+
+    & .icon-thumb__thumb-up {
+      animation:
+        thumb-up $thumb-up-duration $thumb-up-animation $thumb-up-delay forwards,
+        color-fill $color-duration $color-animation $color-delay forwards;
+    }
+
+    & .icon-thumb__fill {
+      animation: color-fill $color-duration $color-animation $color-delay forwards;
     }
 
     & .icon-thumb__border {
-      animation: color-stroke $thumb-color-duration $thumb-color-animation $thumb-color-delay forwards;
+      animation: color-stroke $color-duration $color-animation $color-delay forwards;
     }
   }
 }
 
-@keyframes hand-move {
-  0% {
-    transform: translate(0, 0);
+@keyframes hand-move--v1 {
+  from,
+  to {
+    transform: translate(0, 0) rotate(0);
   }
 
-  30% {
-    transform: translate(-50px, 50px);
-  }
-
-  60% {
-    transform: translate(-100px, 0);
+  50% {
+    //animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: rotate(10deg);
   }
 
   75% {
-    transform: translate(15px, 0);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    //animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    //animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: rotate(-5deg);
+  }
+}
+
+@keyframes thumb-up {
+  from,
+  60% {
+    opacity: 0;
   }
 
-  100% {
-    transform: translate(0, 0);
+  70%,
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes thumb-down {
+  from,
+  60% {
+    opacity: 1;
+  }
+
+  70%,
+  to {
+    opacity: 0;
   }
 }
 
