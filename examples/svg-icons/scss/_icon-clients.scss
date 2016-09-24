@@ -1,0 +1,84 @@
+// Colors
+$brand-blue: #4ddbff !default;
+$brand-yellow: #ffc000 !default;
+
+// Base value of animation
+$animation-duration: 1s;
+
+$rotate-duration: $animation-duration / 2;
+$rotate-delay: 0s;
+
+$color-duration: $animation-duration / 2;
+$color-delay: 0s;
+
+// Animations
+$rotate-animation: ease-in-out;
+
+// -color
+$color-animation: ease-in;
+
+.icon-clients {
+  &__border {
+    stroke: $brand-blue;
+    fill: $white;
+  }
+
+  &__fill {
+    fill: $brand-blue;
+  }
+
+  &__stroke {
+    stroke: $brand-blue;
+  }
+
+  &__client {
+    transform-origin: 500px 1200px;
+
+    &--left {
+      transform: rotate(0deg) scale(0.8) translateY(-200px);
+      transition: all $rotate-duration $rotate-animation;
+    }
+
+    &--right {
+      transform: rotate(0deg) scale(0.8) translateY(-200px);
+      transition: all $rotate-duration $rotate-animation;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    & .icon-clients__client {
+      &--left {
+        transform: rotate(-21deg) scale(0.8) translateY(-200px);
+        transition: all $rotate-duration $rotate-animation;
+      }
+
+      &--right {
+        transform: rotate(21deg) scale(0.8) translateY(-200px);
+        transition: all $rotate-duration $rotate-animation;
+      }
+    }
+
+    & .icon-clients__fill {
+      animation: color-fill $color-duration $color-animation $color-delay forwards;
+    }
+
+    & .icon-clients__border,
+    & .icon-clients__stroke {
+      animation: color-stroke $color-duration $color-animation $color-delay forwards;
+    }
+  }
+}
+
+@keyframes color-stroke {
+  to {
+    stroke: $brand-yellow;
+  }
+}
+
+@keyframes color-fill {
+  to {
+    fill: $brand-yellow;
+  }
+}
