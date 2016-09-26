@@ -1,0 +1,145 @@
+// Colors
+$brand-blue: #4ddbff !default;
+$brand-yellow: #ffc000 !default;
+
+// Base value of animation
+$animation-duration: 3s;
+
+$color-duration: $animation-duration / 10;
+$color-delay: $animation-duration / 3;
+
+$hand-on-duration: $animation-duration / 2;
+$hand-on-delay: 0s;
+
+$hair-duration: $animation-duration / 10;
+$hair-delay: $hand-on-delay + ($hand-on-duration / 2) * 0.8;
+//$hair-delay: 0s;
+
+// Animations
+$hand-on-animation: ease-in-out;
+$hair-animation: linear;
+// -color
+$color-animation: ease-in;
+
+.icon-leadership {
+  &__border {
+    stroke: $brand-blue;
+    fill: $white;
+  }
+
+  &__fill {
+    fill: $brand-blue;
+  }
+
+  &__stroke {
+    stroke: $brand-blue;
+  }
+
+  &__hand {
+    transform-origin: 500px 800px;
+    opacity: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    & .icon-leadership__hand {
+      animation: hand-up $hand-on-duration $hand-on-animation $hand-on-delay forwards;
+
+      &--border {
+        fill: $brand-blue;
+        stroke: $brand-blue;
+        animation:
+          color-stroke $color-duration $color-animation $color-delay forwards,
+          color-fill $color-duration $color-animation $color-delay forwards;
+      }
+
+      &--fill {
+        fill: $white;
+      }
+    }
+
+    & .icon-leadership__hair,
+    & .icon-leadership__smile {
+      opacity: 0;
+      animation:
+        hair-in-out $hair-duration $hair-animation $hair-delay forwards,
+        color-fill $color-duration $color-animation $color-delay forwards;
+    }
+
+    & .icon-leadership__fill {
+      animation: color-fill $color-duration $color-animation $color-delay forwards;
+    }
+
+    & .icon-leadership__border,
+    & .icon-leadership__stroke {
+      animation: color-stroke $color-duration $color-animation $color-delay forwards;
+    }
+  }
+}
+
+@keyframes hair-in-out {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hand-up {
+  from,
+  to {
+    transform: rotate(20deg) translate(0, 0);
+    opacity: 0;
+  }
+
+  20%,
+  80% {
+    opacity: 1;
+  }
+
+  40%,
+  50%,
+  60% {
+    transform: rotate(20deg) translate(40px, -200px);
+    opacity: 1;
+  }
+
+  //20%,
+  //53%,
+  //80%,
+  //from,
+  //to {
+  //  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  //  transform: translateY(0);
+  //}
+  //
+  //40%,
+  //43% {
+  //  animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  //  transform: translateY(-150px);
+  //}
+  //
+  //70% {
+  //  animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  //  transform: translateY(-75px);
+  //}
+  //
+  //90% {
+  //  transform: translateY(-20px);
+  //}
+}
+
+@keyframes color-stroke {
+  to {
+    stroke: $brand-yellow;
+  }
+}
+
+@keyframes color-fill {
+  to {
+    fill: $brand-yellow;
+  }
+}
