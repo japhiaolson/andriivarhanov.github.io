@@ -1,0 +1,139 @@
+.icon-thumb__border {
+  stroke: #4ddbff;
+  fill: #fff;
+}
+
+.icon-thumb__thumb-down {
+  opacity: 0;
+  fill: #4ddbff;
+}
+
+.icon-thumb:hover {
+  cursor: pointer;
+}
+
+.icon-thumb:hover .icon-thumb__hand {
+  -webkit-animation: hand-move 1s 0s forwards;
+          animation: hand-move 1s 0s forwards;
+}
+
+.icon-thumb:hover .icon-thumb__thumb-down {
+  opacity: 1;
+  -webkit-animation: thumb-down 1s ease-in-out 0s forwards, color-fill 0.25s ease-in 0.5s forwards;
+          animation: thumb-down 1s ease-in-out 0s forwards, color-fill 0.25s ease-in 0.5s forwards;
+}
+
+.icon-thumb:hover .icon-thumb__thumb-up {
+  -webkit-animation: thumb-up 1s ease-in-out 0s forwards, color-fill 0.25s ease-in 0.5s forwards;
+          animation: thumb-up 1s ease-in-out 0s forwards, color-fill 0.25s ease-in 0.5s forwards;
+}
+
+.icon-thumb:hover .icon-thumb__fill {
+  -webkit-animation: color-fill 0.25s ease-in 0.5s forwards;
+          animation: color-fill 0.25s ease-in 0.5s forwards;
+}
+
+.icon-thumb:hover .icon-thumb__border {
+  -webkit-animation: color-stroke 0.25s ease-in 0.5s forwards;
+          animation: color-stroke 0.25s ease-in 0.5s forwards;
+}
+
+@-webkit-keyframes hand-move {
+  from,
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  50% {
+    -webkit-transform: translate3d(0, 70px, 0);
+            transform: translate3d(0, 70px, 0);
+  }
+  75% {
+    -webkit-transform: translate3d(0, -40px, 0);
+            transform: translate3d(0, -40px, 0);
+  }
+}
+
+@keyframes hand-move {
+  from,
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  50% {
+    -webkit-transform: translate3d(0, 70px, 0);
+            transform: translate3d(0, 70px, 0);
+  }
+  75% {
+    -webkit-transform: translate3d(0, -40px, 0);
+            transform: translate3d(0, -40px, 0);
+  }
+}
+
+@-webkit-keyframes thumb-up {
+  from,
+  60% {
+    opacity: 0;
+  }
+  70%,
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes thumb-up {
+  from,
+  60% {
+    opacity: 0;
+  }
+  70%,
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes thumb-down {
+  from,
+  60% {
+    opacity: 1;
+  }
+  70%,
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes thumb-down {
+  from,
+  60% {
+    opacity: 1;
+  }
+  70%,
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes color-stroke {
+  to {
+    stroke: #ffc000;
+  }
+}
+
+@keyframes color-stroke {
+  to {
+    stroke: #ffc000;
+  }
+}
+
+@-webkit-keyframes color-fill {
+  to {
+    fill: #ffc000;
+  }
+}
+
+@keyframes color-fill {
+  to {
+    fill: #ffc000;
+  }
+}

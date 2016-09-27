@@ -1,0 +1,162 @@
+.icon-leadership__border {
+  stroke: #4ddbff;
+  fill: #fff;
+}
+
+.icon-leadership__fill {
+  fill: #4ddbff;
+}
+
+.icon-leadership__stroke {
+  stroke: #4ddbff;
+}
+
+.icon-leadership__hand {
+  -webkit-transform-origin: 500px 1000px;
+          transform-origin: 500px 1000px;
+  opacity: 0;
+}
+
+.icon-leadership:hover {
+  cursor: pointer;
+}
+
+.icon-leadership:hover .icon-leadership__necktie {
+  -webkit-animation: necktie-move--v3 1.05s ease 0.525s forwards, color-stroke 0.3s ease-in 1s forwards;
+          animation: necktie-move--v3 1.05s ease 0.525s forwards, color-stroke 0.3s ease-in 1s forwards;
+}
+
+.icon-leadership:hover .icon-leadership__hand {
+  -webkit-animation: hand-in-out 2.1s cubic-bezier(0.41, 0, 0.33, 0.99) 0s forwards;
+          animation: hand-in-out 2.1s cubic-bezier(0.41, 0, 0.33, 0.99) 0s forwards;
+}
+
+.icon-leadership:hover .icon-leadership__hand--border {
+  fill: #4ddbff;
+  stroke: #4ddbff;
+  -webkit-animation: color-stroke 0.3s ease-in 1s forwards, color-fill 0.3s ease-in 1s forwards;
+          animation: color-stroke 0.3s ease-in 1s forwards, color-fill 0.3s ease-in 1s forwards;
+}
+
+.icon-leadership:hover .icon-leadership__hand--fill {
+  fill: #fff;
+}
+
+.icon-leadership:hover .icon-leadership__hair,
+.icon-leadership:hover .icon-leadership__smile {
+  -webkit-animation: color-fill 0.3s ease-in 1s forwards;
+          animation: color-fill 0.3s ease-in 1s forwards;
+}
+
+.icon-leadership:hover .icon-leadership__fill {
+  -webkit-animation: color-fill 0.3s ease-in 1s forwards;
+          animation: color-fill 0.3s ease-in 1s forwards;
+}
+
+.icon-leadership:hover .icon-leadership__border,
+.icon-leadership:hover .icon-leadership__stroke {
+  -webkit-animation: color-stroke 0.3s ease-in 1s forwards;
+          animation: color-stroke 0.3s ease-in 1s forwards;
+}
+
+@-webkit-keyframes hand-in-out {
+  from,
+  to {
+    -webkit-transform: scale(1.2) rotate(30deg) translate(100px, 400px);
+            transform: scale(1.2) rotate(30deg) translate(100px, 400px);
+    opacity: 0;
+  }
+  35%,
+  75% {
+    opacity: 1;
+    -webkit-transform: scale(1.2) rotate(30deg) translate(100px, 100px);
+            transform: scale(1.2) rotate(30deg) translate(100px, 100px);
+  }
+  50% {
+    -webkit-transform: rotate(20deg) translate(40px, -200px);
+            transform: rotate(20deg) translate(40px, -200px);
+    -webkit-transform: scale(1.25) rotate(30deg) translate(100px, 160px);
+            transform: scale(1.25) rotate(30deg) translate(100px, 160px);
+    opacity: 1;
+  }
+}
+
+@keyframes hand-in-out {
+  from,
+  to {
+    -webkit-transform: scale(1.2) rotate(30deg) translate(100px, 400px);
+            transform: scale(1.2) rotate(30deg) translate(100px, 400px);
+    opacity: 0;
+  }
+  35%,
+  75% {
+    opacity: 1;
+    -webkit-transform: scale(1.2) rotate(30deg) translate(100px, 100px);
+            transform: scale(1.2) rotate(30deg) translate(100px, 100px);
+  }
+  50% {
+    -webkit-transform: rotate(20deg) translate(40px, -200px);
+            transform: rotate(20deg) translate(40px, -200px);
+    -webkit-transform: scale(1.25) rotate(30deg) translate(100px, 160px);
+            transform: scale(1.25) rotate(30deg) translate(100px, 160px);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes necktie-move--v3 {
+  from,
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  35%,
+  75% {
+    -webkit-transform: translateX(15px);
+            transform: translateX(15px);
+  }
+  50% {
+    -webkit-transform: translateX(-15px);
+            transform: translateX(-15px);
+  }
+}
+
+@keyframes necktie-move--v3 {
+  from,
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  35%,
+  75% {
+    -webkit-transform: translateX(15px);
+            transform: translateX(15px);
+  }
+  50% {
+    -webkit-transform: translateX(-15px);
+            transform: translateX(-15px);
+  }
+}
+
+@-webkit-keyframes color-stroke {
+  to {
+    stroke: #ffc000;
+  }
+}
+
+@keyframes color-stroke {
+  to {
+    stroke: #ffc000;
+  }
+}
+
+@-webkit-keyframes color-fill {
+  to {
+    fill: #ffc000;
+  }
+}
+
+@keyframes color-fill {
+  to {
+    fill: #ffc000;
+  }
+}

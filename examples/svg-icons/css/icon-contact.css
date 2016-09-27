@@ -1,0 +1,266 @@
+.icon-contact__envelop {
+  fill: #fff;
+}
+
+.icon-contact__cover-left {
+  stroke: #4ddbff;
+  -webkit-transform-origin: 108px;
+          transform-origin: 108px;
+  -webkit-transform: skewY(35deg);
+          transform: skewY(35deg);
+}
+
+.icon-contact__cover-right {
+  stroke: #4ddbff;
+  -webkit-transform-origin: 348px;
+          transform-origin: 348px;
+  -webkit-transform: skewY(-35deg);
+          transform: skewY(-35deg);
+}
+
+.icon-contact__letter {
+  visibility: hidden;
+}
+
+.icon-contact__sign {
+  stroke: #4ddbff;
+  stroke-dasharray: 120 100;
+  visibility: visible;
+}
+
+.icon-contact__border, .icon-contact__envelop {
+  stroke: #4ddbff;
+}
+
+.icon-contact:hover {
+  cursor: pointer;
+}
+
+.icon-contact:hover .icon-contact__cover-left {
+  -webkit-animation: cover-left 1.2s linear forwards, color-stroke 0.24s ease-in 1.2s forwards;
+          animation: cover-left 1.2s linear forwards, color-stroke 0.24s ease-in 1.2s forwards;
+}
+
+.icon-contact:hover .icon-contact__cover-right {
+  -webkit-animation: cover-right 1.2s linear forwards, color-stroke 0.24s ease-in 1.2s forwards;
+          animation: cover-right 1.2s linear forwards, color-stroke 0.24s ease-in 1.2s forwards;
+}
+
+.icon-contact:hover .icon-contact__letter {
+  -webkit-animation: letter 1s ease-in forwards;
+          animation: letter 1s ease-in forwards;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+.icon-contact:hover .icon-contact__sign {
+  visibility: hidden;
+  stroke-dasharray: 0 100;
+  -webkit-animation: sign 0.6s ease-in 1.2s forwards, color-stroke 0.24s ease-in 1.2s forwards;
+          animation: sign 0.6s ease-in 1.2s forwards, color-stroke 0.24s ease-in 1.2s forwards;
+}
+
+.icon-contact:hover .icon-contact__sign--delay {
+  -webkit-animation: sign 0.6s ease-in 1.56s forwards, color-stroke 0.24s ease-in 1.2s forwards;
+          animation: sign 0.6s ease-in 1.56s forwards, color-stroke 0.24s ease-in 1.2s forwards;
+}
+
+.icon-contact:hover .icon-contact__envelop {
+  -webkit-animation: color-stroke 0.24s ease-in 1.2s forwards;
+          animation: color-stroke 0.24s ease-in 1.2s forwards;
+}
+
+.icon-contact:hover .icon-contact__border {
+  -webkit-animation: color-stroke 0.24s ease-in 1.2s forwards;
+          animation: color-stroke 0.24s ease-in 1.2s forwards;
+}
+
+@-webkit-keyframes cover-left {
+  from,
+  to {
+    -webkit-transform: skewY(35deg);
+            transform: skewY(35deg);
+  }
+  25%,
+  75% {
+    -webkit-transform: skewY(0deg);
+            transform: skewY(0deg);
+  }
+  40%,
+  50%,
+  60% {
+    -webkit-transform: skewY(-35deg);
+            transform: skewY(-35deg);
+  }
+}
+
+@keyframes cover-left {
+  from,
+  to {
+    -webkit-transform: skewY(35deg);
+            transform: skewY(35deg);
+  }
+  25%,
+  75% {
+    -webkit-transform: skewY(0deg);
+            transform: skewY(0deg);
+  }
+  40%,
+  50%,
+  60% {
+    -webkit-transform: skewY(-35deg);
+            transform: skewY(-35deg);
+  }
+}
+
+@-webkit-keyframes cover-right {
+  from,
+  to {
+    -webkit-transform: skewY(-35deg);
+            transform: skewY(-35deg);
+  }
+  25%,
+  75% {
+    -webkit-transform: skewY(0deg);
+            transform: skewY(0deg);
+  }
+  40%,
+  50%,
+  60% {
+    -webkit-transform: skewY(35deg);
+            transform: skewY(35deg);
+  }
+}
+
+@keyframes cover-right {
+  from,
+  to {
+    -webkit-transform: skewY(-35deg);
+            transform: skewY(-35deg);
+  }
+  25%,
+  75% {
+    -webkit-transform: skewY(0deg);
+            transform: skewY(0deg);
+  }
+  40%,
+  50%,
+  60% {
+    -webkit-transform: skewY(35deg);
+            transform: skewY(35deg);
+  }
+}
+
+@-webkit-keyframes letter {
+  0% {
+    visibility: visible;
+    opacity: 0;
+  }
+  20% {
+    visibility: visible;
+    opacity: 1;
+  }
+  60% {
+    -webkit-transform: translateY(140px);
+            transform: translateY(140px);
+    opacity: 0.5;
+  }
+  90% {
+    -webkit-transform: translateY(140px);
+            transform: translateY(140px);
+  }
+  95% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    -webkit-transform: translateY(140px);
+            transform: translateY(140px);
+  }
+}
+
+@keyframes letter {
+  0% {
+    visibility: visible;
+    opacity: 0;
+  }
+  20% {
+    visibility: visible;
+    opacity: 1;
+  }
+  60% {
+    -webkit-transform: translateY(140px);
+            transform: translateY(140px);
+    opacity: 0.5;
+  }
+  90% {
+    -webkit-transform: translateY(140px);
+            transform: translateY(140px);
+  }
+  95% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    -webkit-transform: translateY(140px);
+            transform: translateY(140px);
+  }
+}
+
+@-webkit-keyframes letter-opacity {
+  from,
+  to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes letter-opacity {
+  from,
+  to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes sign {
+  20% {
+    visibility: visible;
+  }
+  to {
+    stroke-dasharray: 120 100;
+    visibility: visible;
+  }
+}
+
+@keyframes sign {
+  20% {
+    visibility: visible;
+  }
+  to {
+    stroke-dasharray: 120 100;
+    visibility: visible;
+  }
+}
+
+@-webkit-keyframes color-stroke {
+  0% {
+    stroke: #4ddbff;
+  }
+  100% {
+    stroke: #ffc000;
+  }
+}
+
+@keyframes color-stroke {
+  0% {
+    stroke: #4ddbff;
+  }
+  100% {
+    stroke: #ffc000;
+  }
+}
