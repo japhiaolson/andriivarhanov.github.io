@@ -1,42 +1,21 @@
 // Colors
 $brand-blue: #4ddbff !default;
 $brand-yellow: #ffc000 !default;
+$white: #fff !default;
 
 // Timing
-//$cover-duration: 1s !default;
-$cover-duration: 1.2s !default; //$letter-duration: $cover-duration !default;
-$letter-duration: 1s !default;
-$letter-delay: $cover-duration / 3 !default;
-$color-duration: $cover-duration / 5 !default;
-$sign-duration: $cover-duration / 2 !default;
-$sign-delay: $cover-duration !default;
-
-// Timing --2
-//$cover-duration: 1s !default;
-$cover-duration--2: 2s !default; //$letter-duration: $cover-duration !default;
-$letter-duration--2: 1.2s !default;
-$letter-delay--2: $cover-duration / 3 !default;
-
-// Timing --3
-//$cover-duration: 1s !default;
-$cover-duration--3: 2s !default; //$letter-duration: $cover-duration !default;
-$letter-duration--3: 1.1s !default;
-$letter-delay--3: $cover-duration / 3 !default;
+$cover-duration: 1.2s;
+$letter-duration: 1s;
+$letter-delay: $cover-duration / 3;
+$color-duration: $cover-duration / 5;
+$sign-duration: $cover-duration / 2;
+$sign-delay: $cover-duration;
 
 // Animations
-$cover-animation: linear !default; //$letter-animation: cubic-bezier(.41,0,.33,.99) !default;
-$letter-animation: ease-in !default;
-$color-animation: $letter-animation !default;
-$sign-animation: $letter-animation !default;
-
-// Animations --2
-$cover-animation--2: cubic-bezier(0, .55, .52, .99) !default;
-$letter-animation--2: cubic-bezier(.41, 0, .33, .99) !default;
-
-// Animations --3
-$cover-animation--3: cubic-bezier(0, .55, .52, .99) !default;
-$letter-animation--3: cubic-bezier(.41, 0, .33, .99) !default;
-$letter-animation-opacity: cubic-bezier(.73, .2, .73, .99) !default;
+$cover-animation: linear;
+$letter-animation: ease-in;
+$color-animation: $letter-animation;
+$sign-animation: $letter-animation;
 
 .icon-contact {
   &__envelop {
@@ -104,39 +83,6 @@ $letter-animation-opacity: cubic-bezier(.73, .2, .73, .99) !default;
       animation: color-stroke $color-duration $color-animation $cover-duration forwards;
     }
   }
-
-  &.icon-contact--2 {
-    &:hover {
-      & .icon-contact__cover-left {
-        animation: cover-left--2 $cover-duration--2 $cover-animation--2 forwards, color-stroke $color-duration $color-animation $cover-duration forwards;
-      }
-
-      & .icon-contact__cover-right {
-        animation: cover-right--2 $cover-duration--2 $cover-animation--2 forwards, color-stroke $color-duration $color-animation $cover-duration forwards;
-      }
-
-      & .icon-contact__letter {
-        animation: letter--2 $letter-duration--2 $letter-animation--2 forwards;
-        animation-delay: $letter-delay;
-      }
-    }
-  }
-
-  &.icon-contact--3 {
-    &:hover {
-      & .icon-contact__cover-left {
-        animation: cover-left--3 $cover-duration--3 $cover-animation--3 forwards, color-stroke $color-duration $color-animation $cover-duration forwards;
-      }
-
-      & .icon-contact__cover-right {
-        animation: cover-right--3 $cover-duration--3 $cover-animation--3 forwards, color-stroke $color-duration $color-animation $cover-duration forwards;
-      }
-
-      & .icon-contact__letter {
-        animation: letter--3 $letter-duration--3 $letter-animation--3 $letter-delay forwards, letter-opacity $letter-duration--3 $letter-animation-opacity $letter-delay forwards;
-      }
-    }
-  }
 }
 
 @keyframes cover-left {
@@ -188,10 +134,6 @@ $letter-animation-opacity: cubic-bezier(.73, .2, .73, .99) !default;
 
   60% {
     transform: translateY(140px);
-    opacity: 1;
-  }
-
-  60% {
     opacity: 0.5;
   }
 
@@ -209,102 +151,14 @@ $letter-animation-opacity: cubic-bezier(.73, .2, .73, .99) !default;
   }
 }
 
-@keyframes cover-left--2 {
-  from,
-  to {
-    transform: skewY(35deg);
-  }
-
-  50% {
-    transform: skewY(-35deg);
-  }
-}
-
-@keyframes cover-right--2 {
-  from,
-  to {
-    transform: skewY(-35deg);
-  }
-
-  50% {
-    transform: skewY(35deg);
-  }
-}
-
-@keyframes letter--2 {
-  0% {
-    visibility: visible;
-    opacity: 0;
-  }
-
-  30% {
-    opacity: 1;
-  }
-
-  70% {
-    transform: translateY(140px);
-  }
-
-  80% {
-    opacity: 0.8;
-  }
-
-  95% {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  100% {
-    transform: translateY(140px);
-  }
-}
-
-@keyframes cover-left--3 {
-  0% {
-    transform: skewY(35deg);
-  }
-
-  50% {
-    transform: skewY(-35deg);
-  }
-
-  100% {
-    transform: skewY(35deg);
-  }
-}
-
-@keyframes cover-right--3 {
-  0% {
-    transform: skewY(-35deg);
-  }
-
-  50% {
-    transform: skewY(35deg);
-  }
-
-  100% {
-    transform: skewY(-35deg);
-  }
-}
-
-@keyframes letter--3 {
-  to {
-    visibility: visible;
-    transform: translateY(140px);
-  }
-}
-
 @keyframes letter-opacity {
-  0% {
+  from,
+  to {
     opacity: 0;
   }
 
   50% {
     opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
   }
 }
 

@@ -3,16 +3,16 @@ $brand-blue: #4ddbff !default;
 $brand-yellow: #ffc000 !default;
 
 // Base value of animation
-$animation-duration: 3s;
+$animation-duration: 2.5s;
 
 $coin-bounce-duration: $animation-duration / 3;
 $coin-bounce-delay: 0s;
 
 $coin-out-duration: $animation-duration / 5;
-$coin-out-delay: $coin-bounce-duration;
+$coin-out-delay: $coin-bounce-duration / 5;
 
 $color-duration: $animation-duration / 10;
-$color-delay: $animation-duration / 3;
+$color-delay: $animation-duration / 5;
 
 // Animations
 $coin-out-animation: ease-out;
@@ -96,7 +96,7 @@ $color-animation: ease-in;
     opacity: 1;
   }
 
-  40% {
+  60% {
     opacity: 1;
   }
 

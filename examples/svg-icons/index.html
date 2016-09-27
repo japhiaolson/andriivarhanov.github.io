@@ -6,11 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>SVG Icons</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+
   <style>
     svg {
-      width: 6.25rem; // 100/16
-      height: 6.25rem; // 100/16
+      width: 6.25rem;
+      height: 6.25rem;
     }
 
     .icons-container {
@@ -24,17 +27,22 @@
       max-width: 21rem;
       margin-right: auto;
       margin-left: auto;
+    }
 
-      li {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 1rem;
-        justify-content: space-around;
-      }
+    ul li {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      margin-bottom: 1rem;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
     }
   </style>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
 
 </head>
@@ -45,7 +53,7 @@
     <ul>
       <li>
 
-        <svg class="icon-contact icon-contact--1" width="100px" height="100px" viewbox="0 0 455 455" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <svg class="icon-contact" width="100px" height="100px" viewbox="0 0 455 455" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <circle class="icon-contact__border" fill="#fff" stroke="#4DDBFF" stroke-width="10" cx="227.5" cy="227.5" r="223"></circle>
           <rect class="icon-contact__envelop" rx="10" height="180" width="230" y="138" x="113" stroke-width="22" stroke="#4DDBFF" fill="#fff"/>
           <g class="icon-contact__cover">
@@ -105,7 +113,7 @@
       </li>
       <li>
 
-        <svg class="icon-plans--v3" width="100px" height="100px" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <svg class="icon-plans" width="100px" height="100px" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <circle class="icon-plans__border" stroke="#4ddbff" stroke-width="20" fill="none" cx="500" cy="500" r="490"></circle>
           <g class="icon-plans__stack">
             <path class="icon-plans__fill" d="M376.143239,639.046591 C300.586388,637.248733 237.79103,614.109623 217.43125,583.112605 L210,583.112605 L210,608.868643 C210,652.037215 288.84375,686.862281 385.63125,686.862281 C405.662373,686.885269 425.663378,685.308298 445.44375,682.146387 C445.4398,682.143567 445.43585,682.140747 445.431901,682.137926 C512.994579,671.308498 561.44375,642.595794 561.44375,608.756038 L561.44375,583 L554.0125,583 C532.80625,615.285738 465.5625,639.046591 385.8125,639.046591 L376.143239,639.046591 Z" stroke="none" fill="#4ddbff" fill-rule="evenodd"></path>
