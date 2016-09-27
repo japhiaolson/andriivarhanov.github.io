@@ -140,62 +140,38 @@ $letter-animation-opacity: cubic-bezier(.73, .2, .73, .99) !default;
 }
 
 @keyframes cover-left {
-  0% {
+  from,
+  to {
     transform: skewY(35deg);
   }
 
-  25% {
-    transform: skewY(0deg);
-  }
-
-  40% {
-    transform: skewY(-35deg);
-  }
-
-  50% {
-    transform: skewY(-35deg);
-  }
-
-  60% {
-    transform: skewY(-35deg);
-  }
-
+  25%,
   75% {
     transform: skewY(0deg);
   }
 
-  100% {
-    transform: skewY(35deg);
+  40%,
+  50%,
+  60% {
+    transform: skewY(-35deg);
   }
 }
 
 @keyframes cover-right {
-  0% {
+  from,
+  to {
     transform: skewY(-35deg);
   }
 
-  25% {
-    transform: skewY(0deg);
-  }
-
-  40% {
-    transform: skewY(35deg);
-  }
-
-  50% {
-    transform: skewY(35deg);
-  }
-
-  60% {
-    transform: skewY(35deg);
-  }
-
+  25%,
   75% {
     transform: skewY(0deg);
   }
 
-  100% {
-    transform: skewY(-35deg);
+  40%,
+  50%,
+  60% {
+    transform: skewY(35deg);
   }
 }
 
@@ -206,8 +182,8 @@ $letter-animation-opacity: cubic-bezier(.73, .2, .73, .99) !default;
   }
 
   20% {
-    opacity: 1;
     visibility: visible;
+    opacity: 1;
   }
 
   60% {
@@ -234,58 +210,24 @@ $letter-animation-opacity: cubic-bezier(.73, .2, .73, .99) !default;
 }
 
 @keyframes cover-left--2 {
-  0% {
+  from,
+  to {
     transform: skewY(35deg);
   }
 
-  /* 25% {
-    transform: skewY(0deg);
-  } */
-
-  /*  40% {
-    transform: skewY(-35deg);
-  } */
   50% {
     transform: skewY(-35deg);
-  }
-
-  /* 60% {
-    transform: skewY(-35deg);
-  } */
-
-  /* 75% {
-    transform: skewY(0deg);
-  } */
-  100% {
-    transform: skewY(35deg);
   }
 }
 
 @keyframes cover-right--2 {
-  0% {
+  from,
+  to {
     transform: skewY(-35deg);
   }
 
-  /* 25% {
-    transform: skewY(0deg);
-  } */
-
-  /* 40% {
-    transform: skewY(35deg);
-  } */
   50% {
     transform: skewY(35deg);
-  }
-
-  /* 60% {
-    transform: skewY(35deg);
-  } */
-
-  /* 75% {
-    transform: skewY(0deg);
-  } */
-  100% {
-    transform: skewY(-35deg);
   }
 }
 
@@ -307,9 +249,6 @@ $letter-animation-opacity: cubic-bezier(.73, .2, .73, .99) !default;
     opacity: 0.8;
   }
 
-  /* 90% {
-    transform: translateY(140px);
-  } */
   95% {
     opacity: 0;
     visibility: hidden;
