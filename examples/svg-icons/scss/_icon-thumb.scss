@@ -73,15 +73,15 @@ $color-animation: ease-in;
 @keyframes hand-move {
   from,
   to {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 
   50% {
-    transform: translateY(70px);
+    transform: translate3d(0, 70px, 0);
   }
 
   75% {
-    transform: translateY(-40px);
+    transform: translate3d(0, -40px, 0);
   }
 }
 

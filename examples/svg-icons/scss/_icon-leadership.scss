@@ -11,12 +11,16 @@ $color-delay: $animation-duration / 3;
 $hand-on-duration: $animation-duration * 0.7;
 $hand-on-delay: 0s;
 
+$necktie-duration: $hand-on-duration / 2;
+$necktie-delay: $hand-on-duration / 4;
+
 // Animations
-$hand-on-animation: ease-in-out;
+$necktie-animation: ease;
+$hand-on-animation: cubic-bezier(.41, 0, .33, .99);
 // -color
 $color-animation: ease-in;
 
-.icon-leadership--v1 {
+.icon-leadership {
   &__border {
     stroke: $brand-blue;
     fill: $white;
@@ -38,8 +42,14 @@ $color-animation: ease-in;
   &:hover {
     cursor: pointer;
 
-    & .icon-leadership--v1__hand {
-      animation: hand-move $hand-on-duration $hand-on-animation $hand-on-delay forwards;
+    & .icon-leadership__necktie {
+      animation:
+        necktie-move--v3 $necktie-duration $necktie-animation $necktie-delay forwards,
+        color-stroke $color-duration $color-animation $color-delay forwards;
+    }
+
+    & .icon-leadership__hand {
+      animation: hand-in-out $hand-on-duration $hand-on-animation $hand-on-delay forwards;
 
       &--border {
         fill: $brand-blue;
@@ -54,38 +64,55 @@ $color-animation: ease-in;
       }
     }
 
-    & .icon-leadership--v1__hair,
-    & .icon-leadership--v1__smile {
+    & .icon-leadership__hair,
+    & .icon-leadership__smile {
       animation: color-fill $color-duration $color-animation $color-delay forwards;
     }
 
-    & .icon-leadership--v1__fill {
+    & .icon-leadership__fill {
       animation: color-fill $color-duration $color-animation $color-delay forwards;
     }
 
-    & .icon-leadership--v1__border,
-    & .icon-leadership--v1__stroke {
+    & .icon-leadership__border,
+    & .icon-leadership__stroke {
       animation: color-stroke $color-duration $color-animation $color-delay forwards;
     }
   }
 }
 
-@keyframes hand-move {
+@keyframes hand-in-out {
   from,
   to {
-    transform: scale(1.2) rotate(50deg) translate(10px, 400px);
+    transform: scale(1.2) rotate(30deg) translate(100px, 400px);
     opacity: 0;
   }
 
   35%,
   75% {
     opacity: 1;
-    transform: scale(1.2) rotate(50deg) translate(10px, 160px);
+    transform: scale(1.2) rotate(30deg) translate(100px, 100px);
   }
 
   50% {
-    transform: scale(1.2) rotate(50deg) translate(10px, 220px);
+    transform: rotate(20deg) translate(40px, -200px);
+    transform: scale(1.25) rotate(30deg) translate(100px, 160px);
     opacity: 1;
+  }
+}
+
+@keyframes necktie-move--v3 {
+  from,
+  to {
+    transform: translateX(0);
+  }
+
+  35%,
+  75% {
+    transform: translateX(15px);
+  }
+
+  50% {
+    transform: translateX(-15px);
   }
 }
 
