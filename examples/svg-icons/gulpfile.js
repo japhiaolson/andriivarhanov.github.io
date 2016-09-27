@@ -9,6 +9,8 @@ const gulpif       = require('gulp-if');
 const plumber      = require('gulp-plumber');
 const notify       = require('gulp-notify');
 const browserSync  = require('browser-sync').create();
+const rename       = require('gulp-rename');
+const preprocess   = require('gulp-preprocess');
 
 // Settings to define
 // where are files are located
@@ -17,7 +19,7 @@ const Paths = {
   html_source    : 'index.html',
   build_css      : 'css/',
   sass_source    : 'scss/*.scss',
-  sass_entry     : 'scss/main.scss',
+  sass_entry     : 'scss/bundle.scss',
 };
 
 // Build styles for dev
@@ -26,9 +28,7 @@ gulp.task('styles', function (production) {
     autoprefixer({ browsers: ['> 2%', 'last 2 versions'] })
   ];
 
-  if (production) postcssArg.push(cssnano);
-
-  return gulp.src(Paths.sass_entry)
+  return gulp.src(Paths.sass_source)
     .pipe(plumber({
       errorHandler: notify.onError(function (err) {
         return {title: 'styles', message: err.message}
@@ -36,8 +36,44 @@ gulp.task('styles', function (production) {
     }))
     .pipe(sass({ outputStyle: 'expanded' }))
     .pipe(postcss(postcssArg))
-    .pipe(concat('main.css'))
     .pipe(gulp.dest(Paths.build_css))
+    .pipe(browserSync.stream());
+});
+
+// Build styles for production
+gulp.task('styles:min', function (production) {
+  var postcssArg = [
+    autoprefixer({ browsers: ['> 2%', 'last 2 versions'] }),
+    cssnano
+  ];
+
+  return gulp.src(Paths.sass_source)
+    .pipe(plumber({
+      errorHandler: notify.onError(function (err) {
+        return {title: 'styles:min', message: err.message}
+      })
+    }))
+    .pipe(sass())
+    .pipe(postcss(postcssArg))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest(Paths.build_css))
+    .pipe(browserSync.stream());
+});
+
+// Build styles for production
+gulp.task('svg', function (production) {
+  return gulp.src('index.template.html')
+    .pipe(plumber({
+      errorHandler: notify.onError(function (err) {
+        return {title: 'svg', message: err.message}
+      })
+    }))
+    .pipe(preprocess())
+    .pipe(rename({
+      basename: 'index',
+      extname: '.html'
+    }))
+    .pipe(gulp.dest('./'))
     .pipe(browserSync.stream());
 });
 
@@ -52,8 +88,9 @@ gulp.task('watch', function () {
     }
   });
 
-  gulp.watch(Paths.sass_source, ['styles']);
+  gulp.watch(Paths.sass_source, ['styles', 'styles:min']);
+  gulp.watch(['*.html', 'svg/*.svg'], ['svg']);
 });
 
-gulp.task('build', ['styles']);
+gulp.task('build', ['styles', 'styles:min', 'svg']);
 gulp.task('default', ['build', 'watch']);
