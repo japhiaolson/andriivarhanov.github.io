@@ -29,7 +29,7 @@ $thumb-down-animation: ease-in-out;
 // -color
 $color-animation: ease-in;
 
-.icon-thumb--v1 {
+.icon-thumb {
   &__border {
     stroke: $brand-blue;
     fill: $white;
@@ -44,10 +44,10 @@ $color-animation: ease-in;
     cursor: pointer;
 
     & .icon-thumb__hand {
-      animation: hand-move--v1 $hand-move-duration $hand-move-delay forwards;
+      animation: hand-move $hand-move-duration $hand-move-delay forwards;
     }
 
-    & .icon-thumb--v1__thumb-down {
+    & .icon-thumb__thumb-down {
       opacity: 1;
       animation:
         thumb-down $thumb-down-duration $thumb-down-animation $thumb-down-delay forwards,
@@ -70,22 +70,18 @@ $color-animation: ease-in;
   }
 }
 
-@keyframes hand-move--v1 {
+@keyframes hand-move {
   from,
   to {
-    transform: translate(0, 0) rotate(0);
+    transform: translateY(0);
   }
 
   50% {
-    //animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transform: rotate(10deg);
+    transform: translateY(70px);
   }
 
   75% {
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    //animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    //animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transform: rotate(-5deg);
+    transform: translateY(-40px);
   }
 }
 
