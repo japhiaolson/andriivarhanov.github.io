@@ -1,7 +1,6 @@
 const gulp         = require('gulp-param')(require('gulp'), process.argv);
 const sass         = require('gulp-sass');
 const concat       = require('gulp-concat');
-const sourcemaps   = require('gulp-sourcemaps');
 const postcss      = require('gulp-postcss');
 const uglify       = require('gulp-uglify');
 const autoprefixer = require('autoprefixer');
@@ -10,8 +9,6 @@ const gulpif       = require('gulp-if');
 const plumber      = require('gulp-plumber');
 const notify       = require('gulp-notify');
 const browserSync  = require('browser-sync').create();
-// const imagemin     = require('gulp-imagemin'),
-// const htmlmin = require('gulp-htmlmin'),
 
 // Settings to define
 // where are files are located
@@ -37,11 +34,9 @@ gulp.task('styles', function (production) {
         return {title: 'styles', message: err.message}
       })
     }))
-    .pipe(gulpif(!production, sourcemaps.init()))
-    .pipe(sass({outputStyle: 'expanded'}))
+    .pipe(sass({ outputStyle: 'expanded' }))
     .pipe(postcss(postcssArg))
     .pipe(concat('main.css'))
-    .pipe(gulpif(!production, sourcemaps.write()))
     .pipe(gulp.dest(Paths.build_css))
     .pipe(browserSync.stream());
 });
