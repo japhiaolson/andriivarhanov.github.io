@@ -82,7 +82,7 @@ gulp.task('watch', function () {
   browserSync.init({
     // notify: false,
     ui: false,
-    files: Paths.html_source,
+    files: 'js/*.js',
     server: {
       index: Paths.html_source
     }
