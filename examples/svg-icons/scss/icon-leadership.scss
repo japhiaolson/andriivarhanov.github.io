@@ -45,7 +45,7 @@ $color-animation: ease-in;
 
     & .icon-leadership__necktie {
       animation:
-        necktie-move--v3 $necktie-duration $necktie-animation $necktie-delay forwards,
+        necktie-move $necktie-duration $necktie-animation $necktie-delay forwards,
         color-stroke $color-duration $color-animation $color-delay forwards;
     }
 
@@ -95,13 +95,12 @@ $color-animation: ease-in;
   }
 
   50% {
-    transform: rotate(20deg) translate(40px, -200px);
     transform: scale(1.25) rotate(30deg) translate(100px, 160px);
     opacity: 1;
   }
 }
 
-@keyframes necktie-move--v3 {
+@keyframes necktie-move {
   from,
   to {
     transform: translateX(0);
