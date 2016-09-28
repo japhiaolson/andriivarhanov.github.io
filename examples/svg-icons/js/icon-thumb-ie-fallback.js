@@ -3,9 +3,7 @@
   if (isBrowserIE()) {
     var $icon = $('.icon-thumb');
     var $hand = $('.icon-thumb__hand');
-    var handMove = new TimelineMax();
-
-  // handMove.set($hand, {transformOrigin: '50% 50%', ease:Power4.easeInOut});
+    var handMove = new TimelineMax({ paused: true });
 
     handMove.set($hand, {
       attr: {
@@ -26,16 +24,11 @@
         transform: 'translate(0 0)'
       },
       delay: 0.1
-    }).pause();
-
-    $icon.on('mouseenter', function() {
-      if(handMove.progress() === 1) {
-        handMove.restart();
-      } else {
-        handMove.play();
-      }
     });
 
+    $icon.on('mouseenter', function() {
+      handMove.restart();
+    });
   }
 
   function isBrowserIE() {

@@ -1,30 +1,13 @@
 (function() {
 
-
   if (isBrowserIE()) {
-
     var $icon = $('.icon-leadership');
     var $hand = $('.icon-leadership__hand');
     var $necktie = $('.icon-leadership__necktie');
-    var handInOut = new TimelineMax();
-    var necktieMove = new TimelineMax();
+    var handInOut = new TimelineMax({ paused: true });
+    var necktieMove = new TimelineMax({ paused: true });
     var duration = 3;
-    // $animation-duration: 3s;
-    //
-    // $color-duration: $animation-duration / 10;
-    // $color-delay: $animation-duration / 3;
-    //
-    // $hand-on-duration: $animation-duration * 0.7;
-    // $hand-on-delay: 0s;
-    //
-    // $necktie-duration: $hand-on-duration / 2;
-    // $necktie-delay: $hand-on-duration / 4;
 
-
-    // <g class="icon-leadership__hand" transform="translate(250 50)">
-
-    // 0.5s ease-out 0.16667s
-    // translateX(-500px) rotate(-120deg)
     handInOut.set($hand, {
       attr: {
         transform: 'scale(1.2 1) rotate(30 500 1000) translate(30 400)'
@@ -52,15 +35,13 @@
         transform: 'scale(1.2 1) rotate(30 500 1000) translate(30 400)'
       },
       delay: duration * 0.6
-    })
-    .pause();
+    });
 
     necktieMove
     .set($necktie, {
       attr: {
         transform: 'translate(1 1)'
       },
-      // ease: Bounce.easeOut
     })
     .to($necktie, 0.1, {
       attr: {
@@ -73,29 +54,19 @@
       attr: {
         transform: 'translate(-15 1)'
       },
-      // ease: Bounce.easeOut,
       delay: 0.1 * duration * 0.4
     })
     .to($necktie, 0.1, {
       attr: {
         transform: 'translate(1 1)'
       },
-      // ease: Bounce.easeOut,
       delay: 0.1 * duration * 0.6
-    })
-    .pause();
-
-    $icon.on('mouseenter', function() {
-      // if(handInOut.progress() === 1 && necktieMove.progress() === 1) {
-        handInOut.restart();
-        necktieMove.restart();
-      // } else {
-        // handInOut.play();
-        // necktieMove.play();
-      // }
-
     });
 
+    $icon.on('mouseenter', function() {
+      handInOut.restart();
+      necktieMove.restart();
+    });
   }
 
   function isBrowserIE() {
