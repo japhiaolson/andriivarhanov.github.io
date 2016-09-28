@@ -265,6 +265,11 @@
   }
 }
 
+.icon-home__sun {
+  -webkit-transform-origin: 500px 500px;
+          transform-origin: 500px 500px;
+}
+
 .icon-home__sun-fill {
   fill: #4ddbff;
 }
@@ -283,6 +288,13 @@
 
 .icon-home__ray--odd {
   stroke-dasharray: 101 101;
+}
+
+.icon-home__cloud {
+  -webkit-transform: translate(160px, 423px);
+          transform: translate(160px, 423px);
+  -webkit-transform-origin: 160px 322px;
+          transform-origin: 160px 322px;
 }
 
 .icon-home__cloud-outher {
@@ -391,59 +403,87 @@
 
 @-webkit-keyframes sun-out {
   to {
+    -webkit-transform: translate(-78px, 13px) scale(0.8);
+            transform: translate(-78px, 13px) scale(0.8);
   }
 }
 
 @keyframes sun-out {
   to {
+    -webkit-transform: translate(-78px, 13px) scale(0.8);
+            transform: translate(-78px, 13px) scale(0.8);
   }
 }
 
 @-webkit-keyframes cloud-in {
   to {
+    -webkit-transform: translate(350px, 423px) scale(1.3);
+            transform: translate(350px, 423px) scale(1.3);
   }
 }
 
 @keyframes cloud-in {
   to {
+    -webkit-transform: translate(350px, 423px) scale(1.3);
+            transform: translate(350px, 423px) scale(1.3);
   }
 }
 
 @-webkit-keyframes cloud-out {
   0% {
+    -webkit-transform: translate(350px, 423px) scale(1.3);
+            transform: translate(350px, 423px) scale(1.3);
   }
   to {
+    -webkit-transform: translate(160px, 423px) scale(1);
+            transform: translate(160px, 423px) scale(1);
   }
 }
 
 @keyframes cloud-out {
   0% {
+    -webkit-transform: translate(350px, 423px) scale(1.3);
+            transform: translate(350px, 423px) scale(1.3);
   }
   to {
+    -webkit-transform: translate(160px, 423px) scale(1);
+            transform: translate(160px, 423px) scale(1);
   }
 }
 
 @-webkit-keyframes sun-in {
   to {
+    -webkit-transform: translate(-150px, -120px) scale(1);
+            transform: translate(-150px, -120px) scale(1);
   }
 }
 
 @keyframes sun-in {
   to {
+    -webkit-transform: translate(-150px, -120px) scale(1);
+            transform: translate(-150px, -120px) scale(1);
   }
 }
 
 @-webkit-keyframes sun-back-to {
   0% {
+    -webkit-transform: translate(-150px, -120px);
+            transform: translate(-150px, -120px);
   }
   to {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
   }
 }
 
 @keyframes sun-back-to {
   0% {
+    -webkit-transform: translate(-150px, -120px);
+            transform: translate(-150px, -120px);
   }
   to {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
   }
 }
 
